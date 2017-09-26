@@ -1,0 +1,85 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<div id="container" style="width: 800px; height: 500px; margin: 0 auto"></div>
+
+<script>
+   var chart = {
+     colors : ['#002f9b', '#4d80bf', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+     series : [{
+                    name: 'Third part costs : including third party service  and product costs as well as applicable taxes',
+                    data: [-2, -0.1, -4, -7.5, -2.5,-2.3]
+                }, {
+                    name: 'Service fees : including securities account fee ',
+                    data: [-2.5, -2.5, -3.6, -2, -1.5]
+                }],
+     categories : ['1st year', '2nd year', '3rd year', '4th year', '5th year','Costs for exiting the product'],
+     
+    
+   }
+
+chart.min = function() {
+         var sumOfElements = chart.series.map(d=>d.data)
+                              .reduce(function (r, a) {
+                                a.forEach(function (b, i) {
+                                    r[i] = (r[i] || 0) + b;
+                                });
+                                return r;
+                            }, []);
+         return  Math.round(Math.min.apply(null, sumOfElements))
+         }
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: ''
+    },
+    colors: chart.colors,
+    xAxis: {
+        opposite : true,
+        categories: chart.categories,
+        tickWidth : 0
+    },
+    yAxis: {
+        min: chart.min(),
+        title: {
+            text: ''
+        },
+        labels : {
+           formatter: function () {
+           return  Highcharts.numberFormat(this.value,2) + ' %';
+          }
+        },
+        stackLabels : {
+           enabled : true,
+           formatter :  function () {
+            return  Highcharts.numberFormat(this.total,2) + ' %';
+          }
+        }
+         
+    },
+   
+    legend: {
+     layout: 'vertical',
+        squareSymbol : false,
+        symbolRadius : 0,
+        align: 'centre',
+        verticalAlign: 'bottom',
+        floating: false,
+        y : 20
+       
+    },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total:       {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        }
+    },
+    series: chart.series
+});
+
+</script>
