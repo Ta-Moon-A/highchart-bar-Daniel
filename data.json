@@ -2,12 +2,13 @@
     "colors": ["#002f9b", "#4d80bf", "#8085e9", "#f15c80", "#e4d354", "#2b908f", "#f45b5b", "#91e8e1"],
     "series": [{
         "name": "Third part costs : including third party service  and product costs as well as applicable taxes",
-        "data": [-0.5, 0.1, -4, -7.5, -2.5, -1]
+        "data": [-0.5, -0.1, -4, -7.5, -2.5, -1]
     }, {
         "name": "Service fees : including securities account fee ",
         "data": [-2.5, -2.5, -3.6, -2, -1.5, -1]
     }],
-    "categories": ["1st year", "2nd year", "3rd year", "4th year", "5th year", "Costs for exiting the product"]
+    "categories": ["1<sup>st</sup> year", "2<sup>nd</sup> year",
+        "3<sup>rd</sup> year", "4<sup>th</sup> year", "5<sup>th</sup> year", "Costs for exiting the product"],
 
 
 }
