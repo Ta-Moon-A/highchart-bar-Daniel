@@ -5,7 +5,7 @@
         "data": [-0.5, -0.1, -4, -7.5, -2.5, -1]
     }, {
         "name": "Service fees : including securities account fee ",
-        "data": [-2.5, -2.5, -3.6, -2, -1.5, -1]
+        "data": [-2.5, -2.5, -3.6, -3, -1.5, -10]
     }],
     "categories": ["1<sup>st</sup> year", "2<sup>nd</sup> year",
         "3<sup>rd</sup> year", "4<sup>th</sup> year", "5<sup>th</sup> year", "Costs for exiting the product"]

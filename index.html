@@ -52,7 +52,7 @@
                 }
             })
 
-
+   console.log(chart.min())
             Highcharts.chart('container', {
                 chart: {
                     type: 'column'
@@ -79,7 +79,7 @@
 
                 },
                 yAxis: {
-                    min: chart.min(),
+                    min: chart.min()-2,
                     offset: 20,
                     title: {
                         text: ''
