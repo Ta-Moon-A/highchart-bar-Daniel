@@ -13,17 +13,20 @@
         if (xhr.readyState == 4 && xhr.status == 200) {
              var chart = JSON.parse(xhr.responseText);
 
+
             // var chart = {
-            //     colors: ['#002f9b', '#4d80bf', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+            //     colors: ["#002f9b", "#4d80bf", "#8085e9", "#f15c80", "#e4d354", "#2b908f", "#f45b5b", "#91e8e1"],
             //     series: [{
-            //         name: 'Third part costs : including third party service  and product costs as well as applicable taxes',
-            //         data: [0, 0.1, -4, -7.5, -2.5, 1]
+            //         name: "Third part costs : including third party service  and product costs as well as applicable taxes",
+            //         data: [-2.5, -2.5, -5.6, -2, -1.5, -1],
+            //         visible: true
             //     }, {
-            //         name: 'Service fees : including securities account fee ',
-            //         data: [-2.5, -2.5, -3.6, -2, -1.5, 1]
+            //         name: "Service fees : including securities account fee ",
+            //         data: [-1, -0.1, -4, -1.5, -0.5, -0.5],
+            //         visible: true
             //     }],
-            //     categories: ['1<sup>st</sup> year', '2<sup>nd</sup> year',
-            //         '3<sup>rd</sup> year', '4<sup>th</sup> year', '5<sup>th</sup> year', 'Costs for exiting the product'],
+            //     categories: ["1<sup>st</sup> year", "2<sup>nd</sup> year",
+            //         "3<sup>rd</sup> year", "4<sup>th</sup> year", "5<sup>th</sup> year", "Costs for exiting the product"],
             // }
 
             Array.prototype.insert = function (index) {
@@ -52,11 +55,13 @@
                 }
             })
 
-   console.log(chart.min())
+
             Highcharts.chart('container', {
                 chart: {
+                    animation: false,
                     type: 'column'
                 },
+               
                 credits: {
                     enabled: false
                 },
@@ -70,9 +75,9 @@
                     tickWidth: 0,
                     labels: {
                         useHTML: true,
-                        style : {
+                        style: {
                             textOverflow: 'none',
-                            whitespace : 'normal',
+                            whitespace: 'normal',
                             paddingBottom: '10px',
                         }
                     }
@@ -80,7 +85,8 @@
                 },
                 yAxis: {
                     min: chart.min()-2,
-                    offset: 20,
+                   
+                    offset: 30,
                     title: {
                         text: ''
                     },
@@ -117,7 +123,9 @@
                 },
                 plotOptions: {
                     column: {
-                        stacking: 'normal'
+                        stacking: 'normal',
+                        animation: false
+            
                     }
                 },
                 series: chart.series
